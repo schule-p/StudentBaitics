@@ -13,12 +13,12 @@ namespace WebApplication4.Domain
             this.context = context;
         }
 
-        public IQueryable <Student> GetStudents()
-        {
-            var x = (IQueryable<Student>)context.students.OrderBy(keySelector: x => x.StudentName);
-            return x;
+        //public IQueryable <Student> GetStudents()
+        //{
+        //    var x = (IQueryable<Student>)context.students.OrderBy(keySelector: x => x.StudentName);
+        //    return x;
 
-        }
+        //}
 
     }
 }

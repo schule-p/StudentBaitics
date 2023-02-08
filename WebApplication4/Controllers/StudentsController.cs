@@ -1,30 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections;
+using System.Data.Entity;
 using WebApplication4.Data;
 using WebApplication4.Domain;
 using WebApplication4.Models;
 
 namespace WebApplication4.Controllers
 {
-    [Route("/api/Students")]
+    [ApiController]
+    [Route("[controller]")]
     public class StudentsController : Controller
     {
-        //private readonly DBHelper _db;
-        private readonly StudentRepository studentRepository;
-        public StudentsController(StudentRepository studentRepository)
+        
+        private readonly AppDbContext _context;
+        public StudentsController(AppDbContext context)
+            
         {
-            this.studentRepository = studentRepository;
+            this._context = context;
         }
-
+        
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetStudents()
         {
-            var x = studentRepository.GetStudents();
+            var x = _context.Students.ToList();
+
             return Ok(x);
         }
-
-
 
     }
 

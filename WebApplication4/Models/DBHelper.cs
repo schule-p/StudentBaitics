@@ -14,16 +14,16 @@ namespace WebApplication4.Models
         public List<Student> GetStudents()
         {
             List<Student> students = new List<Student>();
-            var DataList = _context.students.ToList();
-            DataList.ForEach(row => students.Add(new Student()
-            {
-                Id = row.Id,
-                StudentName = row.StudentName,
-                Points = row.Points,
-                LastDateUpdatePoints = row.LastDateUpdatePoints
+            //var DataList = _context.students.ToList();
+            //DataList.ForEach(row => students.Add(new Student()
+            //{
+            //    Id = row.Id,
+            //    StudentName = row.StudentName,
+            //    Points = row.Points,
+            //    LastDateUpdatePoints = row.LastDateUpdatePoints
 
 
-            }));
+            //}));
             return students;
         }
 
@@ -31,12 +31,12 @@ namespace WebApplication4.Models
         {
             Student dbTable = new Student();
 
-            dbTable = _context.students.Where(d => d.Id.Equals(student.Id)).FirstOrDefault();
+            //dbTable = _context.students.Where(d => d.Id.Equals(student.Id)).FirstOrDefault();
             
             dbTable.StudentName = student.StudentName;
             dbTable.Points = student.Points;
             dbTable.LastDateUpdatePoints = student.LastDateUpdatePoints;
-            _context.students.Add(dbTable);
+            //_context.students.Add(dbTable);
             _context.SaveChanges();
         }
         
