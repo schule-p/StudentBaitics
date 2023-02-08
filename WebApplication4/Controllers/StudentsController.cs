@@ -19,7 +19,10 @@ namespace WebApplication4.Controllers
         {
             this._context = context;
         }
-        
+
+        //Генерация уникального Id
+        private int NextUniId => _context.Students.Count() == 0 ? 1 : _context.Students.Max(p => p.Id) + 1;
+
         [HttpGet]
         public IActionResult GetStudents()
         {
@@ -28,7 +31,59 @@ namespace WebApplication4.Controllers
             return Ok(x);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddStudent(AddStudentRequest addStudentRequest)
+        {
+            var student = new Models.Student()
+            {
+                //Id = Guid.NewGuid(),
+                Id = NextUniId,
+                StudentName = addStudentRequest.StudentName,
+                Points = addStudentRequest.Points,
+                LastDateUpdatePoints = addStudentRequest.LastDateUpdatePoints
+
+            };
+            await _context.Students.AddAsync(student);
+            await _context.SaveChangesAsync();
+            return Ok(student);
+        }
+
+        [HttpDelete]
+        [Route("{Id}")]
+        public async Task<IActionResult> DeleteStudent([FromBody] int Id)
+        {
+            var student = await _context.Students.FindAsync(Id);
+            if (student != null) 
+            {
+                _context.Remove(student);
+                await _context.SaveChangesAsync();
+                return Ok(student);
+            }
+            return NotFound();
+        }
+
+        [HttpPut]
+        [Route("{Id}")]
+
+        public async Task<IActionResult> UpdateStudent([FromBody] int Id, UpdateStudentRepository updateStudentRepository)
+        {
+            var student = await _context.Students.FindAsync(Id);
+
+            if (student != null)
+            {
+                student.StudentName = updateStudentRepository.StudentName;
+                student.Points = updateStudentRepository.Points;
+                student.LastDateUpdatePoints = updateStudentRepository.LastDateUpdatePoints;
+
+                await _context.SaveChangesAsync();
+
+                return Ok(student);
+            }
+            return NotFound();
+        }
+
+
     }
 
-        
+
 }
