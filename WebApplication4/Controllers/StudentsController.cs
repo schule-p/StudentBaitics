@@ -20,7 +20,8 @@ namespace WebApplication4.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(studentRepository.GetStudents());
+            var x = studentRepository.GetStudents();
+            return Ok(x);
         }
 
 

@@ -15,7 +15,9 @@ namespace WebApplication4.Domain
 
         public IQueryable <Student> GetStudents()
         {
-            return (IQueryable<Student>)context.students.OrderBy(keySelector: x => x.StudentName);
+            var x = (IQueryable<Student>)context.students.OrderBy(keySelector: x => x.StudentName);
+            return x;
+
         }
 
     }

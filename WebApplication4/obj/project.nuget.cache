@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J1kAg8pAR/hFKJO5DtUdF+IJPAABltI+MsrIUeUAMMl8CLFbTvPNDFEZVQYUDLyAWNk6pbFb044w84TF8w1Qyw==",
+  "dgSpecHash": "KainBXNWR+BHbz0sYRaUg7n0MbW50qwqx17lVJzXKy3H+FPHkmQp+UOnsXQ7EXdz+d+nXULH+3Hh+G0H274Slw==",
   "success": true,
-  "projectFilePath": "E:\\Programming\\c# trains\\WebApplication4\\WebApplication4.csproj",
+  "projectFilePath": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\schule_p\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\schule_p\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
