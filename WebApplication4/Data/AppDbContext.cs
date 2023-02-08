@@ -22,9 +22,6 @@ namespace WebApplication4.Data
             }
             );
 
-
-                
-                
         }
     }
 }
