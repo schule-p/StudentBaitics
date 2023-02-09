@@ -21,10 +21,4 @@ namespace WebApplication4.Models
 
     }
 
-    //public class StudentContext : DbContext
-    //{
-    //    public DbSet<Student> students { get; set; }
-
-    //    public StudentContext(DbContextOptions<StudentContext> options) : base(options) { }
-    //}
 }

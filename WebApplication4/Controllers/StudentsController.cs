@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NpgsqlTypes;
 using System.Collections;
 using System.Data.Entity;
 using WebApplication4.Data;
@@ -8,7 +9,7 @@ using WebApplication4.Models;
 namespace WebApplication4.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("/api/Student")]
     public class StudentsController : Controller
     {
         
@@ -22,13 +23,27 @@ namespace WebApplication4.Controllers
         //Генерация уникального Id
         private int NextUniId => _context.Students.Count() == 0 ? 1 : _context.Students.Max(p => p.Id) + 1;
 
-        [HttpGet]
+        [HttpGet("GetStudents")]
         public IActionResult GetStudents()
         {
             var x = _context.Students.ToList();
+            var y = _context.Students;
 
             return Ok(x);
         }
+
+        
+
+        [HttpGet("{Id}")]
+        public IActionResult GetStudents(int Id)
+        {
+            var student = _context.Students.FirstOrDefault(x => x.Id == Id);
+            if (student == null)
+                return NotFound();
+            
+            return Ok(student);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> AddStudent(Models.Student studentRequest)
@@ -61,19 +76,59 @@ namespace WebApplication4.Controllers
             return NotFound();
         }
 
-        [HttpPut]
-        [Route("{Id}")]
+        //[HttpPut("{Id}")]
+        //public async Task<IActionResult> UpdateStudent(int Id, Models.Student studentRequest)
+        //{
+        //    var student = await _context.Students.FindAsync(Id);
 
-        public async Task<IActionResult> UpdateStudent(int Id, Models.Student studentRequest)
+        //    if (student != null)
+        //    {
+
+        //        student.StudentName = studentRequest.StudentName;
+        //        student.Points = studentRequest.Points;
+        //        student.LastDateUpdatePoints = studentRequest.LastDateUpdatePoints;
+
+        //        await _context.SaveChangesAsync();
+
+        //        return Ok(student);
+        //    }
+        //    return NotFound();
+        //}
+
+        
+        //[HttpPut("{Id}", Name = "AddPointsStudent")]
+
+        //public async Task<IActionResult> Plus10PointsStudent(int Id, Models.Student studentRequest)
+        //{
+        //    var student = _context.Students.FirstOrDefault(x => x.Id == Id);
+
+        //    if (student != null)
+        //    {
+
+        //        var x = student.Points;
+        //        student.Points = Convert.ToUInt16(x + 10);
+
+
+        //        await _context.SaveChangesAsync();
+
+        //        return Ok(student);
+        //    }
+        //    return NotFound();
+        //}
+
+
+        [HttpPut("{Id}", Name = "AddPointsStudent")]
+        
+        public async Task<IActionResult> Minus10PointsStudent(int Id, Models.Student studentRequest)
         {
-            var student = await _context.Students.FindAsync(Id);
+            var student = _context.Students.FirstOrDefault(x => x.Id == Id);
 
             if (student != null)
             {
 
-                student.StudentName = studentRequest.StudentName;
-                student.Points = studentRequest.Points;
-                student.LastDateUpdatePoints = studentRequest.LastDateUpdatePoints;
+                var x = student.Points;
+                student.Points = Convert.ToUInt16(x - 10);
+
 
                 await _context.SaveChangesAsync();
 
@@ -81,6 +136,7 @@ namespace WebApplication4.Controllers
             }
             return NotFound();
         }
+
 
 
     }
