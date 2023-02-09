@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Data.Entity;
 using WebApplication4.Data;
-using WebApplication4.Domain;
 using WebApplication4.Models;
 
 namespace WebApplication4.Controllers
@@ -32,15 +31,15 @@ namespace WebApplication4.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddStudent(AddStudentRequest addStudentRequest)
+        public async Task<IActionResult> AddStudent(Models.Student studentRequest)
         {
             var student = new Models.Student()
             {
                 //Id = Guid.NewGuid(),
                 Id = NextUniId,
-                StudentName = addStudentRequest.StudentName,
-                Points = addStudentRequest.Points,
-                LastDateUpdatePoints = addStudentRequest.LastDateUpdatePoints
+                StudentName = studentRequest.StudentName,
+                Points = studentRequest.Points,
+                LastDateUpdatePoints = studentRequest.LastDateUpdatePoints
 
             };
             await _context.Students.AddAsync(student);
@@ -50,7 +49,7 @@ namespace WebApplication4.Controllers
 
         [HttpDelete]
         [Route("{Id}")]
-        public async Task<IActionResult> DeleteStudent([FromBody] int Id)
+        public async Task<IActionResult> DeleteStudent(int Id)
         {
             var student = await _context.Students.FindAsync(Id);
             if (student != null) 
@@ -65,15 +64,16 @@ namespace WebApplication4.Controllers
         [HttpPut]
         [Route("{Id}")]
 
-        public async Task<IActionResult> UpdateStudent([FromBody] int Id, UpdateStudentRepository updateStudentRepository)
+        public async Task<IActionResult> UpdateStudent(int Id, Models.Student studentRequest)
         {
             var student = await _context.Students.FindAsync(Id);
 
             if (student != null)
             {
-                student.StudentName = updateStudentRepository.StudentName;
-                student.Points = updateStudentRepository.Points;
-                student.LastDateUpdatePoints = updateStudentRepository.LastDateUpdatePoints;
+
+                student.StudentName = studentRequest.StudentName;
+                student.Points = studentRequest.Points;
+                student.LastDateUpdatePoints = studentRequest.LastDateUpdatePoints;
 
                 await _context.SaveChangesAsync();
 

@@ -2413,19 +2413,19 @@
   },
   "packageFolders": {
     "C:\\Users\\schule_p\\.nuget\\packages\\": {},
-    "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
+      "projectUniqueName": "C:\\Users\\schule_p\\OneDrive\\Документы\\GitHub\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
       "projectName": "WebApplication4",
-      "projectPath": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
+      "projectPath": "C:\\Users\\schule_p\\OneDrive\\Документы\\GitHub\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
       "packagesPath": "C:\\Users\\schule_p\\.nuget\\packages\\",
-      "outputPath": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\obj\\",
+      "outputPath": "C:\\Users\\schule_p\\OneDrive\\Документы\\GitHub\\StudentBaitics\\WebApplication4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\schule_p\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2497,7 +2497,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
