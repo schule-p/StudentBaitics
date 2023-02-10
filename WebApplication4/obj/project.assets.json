@@ -838,6 +838,9 @@
             "rid": "win"
           }
         }
+      },
+      "vue/2.6.11": {
+        "type": "package"
       }
     }
   },
@@ -2400,6 +2403,21 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "vue/2.6.11": {
+      "sha512": "QvC2UH8Eaz/aEc6+bf1WpdtZl8iAToPuPxI2To6yDfOyqcTL4fvAlpNix1TXzSVQhPcABmbDcDt49uq/HcNmOQ==",
+      "type": "package",
+      "path": "vue/2.6.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/vue.js",
+        "Content/Scripts/vue.min.js",
+        "images/icon.png",
+        "license/LICENSE.txt",
+        "vue.2.6.11.nupkg.sha512",
+        "vue.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -2408,24 +2426,25 @@
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.2",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.17.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 7.0.1",
-      "Swashbuckle.AspNetCore >= 6.2.3"
+      "Swashbuckle.AspNetCore >= 6.2.3",
+      "vue >= 2.6.11"
     ]
   },
   "packageFolders": {
     "C:\\Users\\schule_p\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\schule_p\\OneDrive\\Документы\\GitHub\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
+      "projectUniqueName": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
       "projectName": "WebApplication4",
-      "projectPath": "C:\\Users\\schule_p\\OneDrive\\Документы\\GitHub\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
+      "projectPath": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
       "packagesPath": "C:\\Users\\schule_p\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\schule_p\\OneDrive\\Документы\\GitHub\\StudentBaitics\\WebApplication4\\obj\\",
+      "outputPath": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "E:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\schule_p\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2476,6 +2495,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
+          },
+          "vue": {
+            "target": "Package",
+            "version": "[2.6.11, )"
           }
         },
         "imports": [
@@ -2497,7 +2520,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

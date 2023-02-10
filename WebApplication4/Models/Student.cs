@@ -18,6 +18,8 @@ namespace WebApplication4.Models
         public ushort Points { get; set; }
         [Display(Name = "Последнее обновление")]
         public DateTime LastDateUpdatePoints { get; set; }
+        public Guid[] BuyProducts { get; set; }//массив id для купленных продуктов. можно заменить id[], поскольку Guid пока что не работает
+
 
     }
 

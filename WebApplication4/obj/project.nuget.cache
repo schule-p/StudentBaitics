@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BYN8uB41D4fhgNlfA6gl/R4D8qeq9N7RzMZ7OO3q9aHkuLCmlta8gT7+B3tVnvRrTWtWquS3zlxdtrc+9mZiuw==",
+  "dgSpecHash": "3q0so4gwa/EQqLX+0GJ/B/h0gvyZSiy0/RJ81XUSHI6ZxJEZq+l8t3/uV4w8rL/KJAzM3biPTP02Jxavh/Vf2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\schule_p\\OneDrive\\Документы\\GitHub\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
+  "projectFilePath": "E:\\Programming\\GitHub\\weatherVue\\StudentBaitics\\WebApplication4\\WebApplication4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\schule_p\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\schule_p\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -52,7 +52,8 @@
     "C:\\Users\\schule_p\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\schule_p\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\schule_p\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
-    "C:\\Users\\schule_p\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\schule_p\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\schule_p\\.nuget\\packages\\vue\\2.6.11\\vue.2.6.11.nupkg.sha512"
   ],
   "logs": []
 }

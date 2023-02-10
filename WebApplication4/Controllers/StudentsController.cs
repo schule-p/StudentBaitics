@@ -77,7 +77,8 @@ namespace WebApplication4.Controllers
             return NotFound();
         }
 
-        [HttpPut("{Id}")]
+        [HttpPut]
+        [Route("/api/Student/UpdateStudent/{Id}")]
         public async Task<IActionResult> UpdateStudent(int Id, Models.Student studentRequest)
         {
             var student = await _context.Students.FindAsync(Id);
@@ -98,9 +99,7 @@ namespace WebApplication4.Controllers
 
 
         [HttpPut("Plus10PointsStudent")]
-        //[Route("/api/Student/AddPointsStudent")]
-
-
+        
         public async Task<IActionResult> Plus10PointsStudent(int Id, Models.Student studentRequest)
         {
             var student = _context.Students.FirstOrDefault(x => x.Id == Id);
