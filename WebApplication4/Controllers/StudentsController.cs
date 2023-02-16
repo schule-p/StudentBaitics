@@ -24,7 +24,8 @@ namespace WebApplication4.Controllers
         //Генерация уникального Id
         private int NextUniId => _context.Students.Count() == 0 ? 1 : _context.Students.Max(p => p.Id) + 1;
 
-        [HttpGet("GetStudents")]
+        [HttpGet]
+        [Route("/api/Student/GetStudents")]
         public IActionResult GetStudents()
         {
             var x = _context.Students.ToList();
@@ -33,9 +34,9 @@ namespace WebApplication4.Controllers
             return Ok(x);
         }
 
-        
 
-        [HttpGet("{Id}")]
+        [HttpGet]
+        [Route("/api/Student/GetStudents/{Id}")]
         public IActionResult GetStudents(int Id)
         {
             var student = _context.Students.FirstOrDefault(x => x.Id == Id);
@@ -47,6 +48,7 @@ namespace WebApplication4.Controllers
 
 
         [HttpPost]
+        [Route("/api/Student/AddStudent")]
         public async Task<IActionResult> AddStudent(Models.Student studentRequest)
         {
             var student = new Models.Student()
@@ -64,7 +66,7 @@ namespace WebApplication4.Controllers
         }
 
         [HttpDelete]
-        [Route("{Id}")]
+        [Route("/api/Student/DeleteStudent/{Id}")]
         public async Task<IActionResult> DeleteStudent(int Id)
         {
             var student = await _context.Students.FindAsync(Id);
@@ -77,7 +79,8 @@ namespace WebApplication4.Controllers
             return NotFound();
         }
 
-        [HttpPut("{Id}")]
+        [HttpPut]
+        [Route("/api/Student/UpdateStudent/{Id}")]
         public async Task<IActionResult> UpdateStudent(int Id, Models.Student studentRequest)
         {
             var student = await _context.Students.FindAsync(Id);
@@ -97,8 +100,8 @@ namespace WebApplication4.Controllers
         }
 
 
-        [HttpPut("Plus10PointsStudent")]
-        //[Route("/api/Student/AddPointsStudent")]
+        [HttpPut]
+        [Route("/api/Student/Plus10PointsStudent/{Id}")]
 
 
         public async Task<IActionResult> Plus10PointsStudent(int Id, Models.Student studentRequest)
