@@ -13,10 +13,10 @@ namespace WebApplication4.Controllers
     [Route("/api/Student")]
     public class StudentsController : Controller
     {
-        
+
         private readonly AppDbContext _context;
         public StudentsController(AppDbContext context)
-            
+
         {
             this._context = context;
         }
@@ -42,7 +42,7 @@ namespace WebApplication4.Controllers
             var student = _context.Students.FirstOrDefault(x => x.Id == Id);
             if (student == null)
                 return NotFound();
-            
+
             return Ok(student);
         }
 
@@ -70,7 +70,7 @@ namespace WebApplication4.Controllers
         public async Task<IActionResult> DeleteStudent(int Id)
         {
             var student = await _context.Students.FindAsync(Id);
-            if (student != null) 
+            if (student != null)
             {
                 _context.Remove(student);
                 await _context.SaveChangesAsync();
@@ -113,7 +113,7 @@ namespace WebApplication4.Controllers
 
                 var x = student.Points;
                 student.Points = Convert.ToUInt16(x + 10);
-
+                student.LastDateUpdatePoints = studentRequest.LastDateUpdatePoints;
 
                 await _context.SaveChangesAsync();
 
