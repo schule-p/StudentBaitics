@@ -10,6 +10,7 @@ namespace WebApplication4.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Products> Products { get; set; }
+        public DbSet<Transactions> Transactions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -26,7 +27,6 @@ namespace WebApplication4.Data
             {
                 Id = 1,
                 ProductName = "Худи",
-                Price = 1000,
                 ProductCount = 19
             }
             );

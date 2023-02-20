@@ -14,11 +14,8 @@ namespace WebApplication4.Models
         [Display(Name = "Название товара")]
         public string ProductName { get; set; }
 
-        [Display(Name = "Цена")]
-        public ushort Price { get; set; }
-
         [Display(Name = "Количество")]
-        public ushort ProductCount { get; set; }
+        public int ProductCount { get; set; }
 
     }
 }

@@ -15,7 +15,7 @@ namespace WebApplication4.Models
         [Display(Name = "Имя студента")]
         public string StudentName { get; set; }
         [Display(Name = "Баллы")]
-        public ushort Points { get; set; }
+        public int Points { get; set; }
         [Display(Name = "Последнее обновление")]
         public DateTime LastDateUpdatePoints { get; set; }
 

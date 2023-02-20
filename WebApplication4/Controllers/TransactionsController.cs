@@ -1,33 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NpgsqlTypes;
-using System.Collections;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using WebApplication4.Data;
-using WebApplication4.Models;
+using System.Data.Entity;
+using System.Linq.Expressions;
+
+
 
 namespace WebApplication4.Controllers
 {
     [ApiController]
-    [Route("/api/Product")]
-    public class ProductsController : Controller
+    [Route("/api/Transaction")]
+    public class TransactionsController : Controller
     {
-        
         private readonly AppDbContext _context;
-        public ProductsController(AppDbContext context)
+        public TransactionsController(AppDbContext context)
 
         {
             this._context = context;
         }
 
         //Генерация уникального Id
-        private int NextUniId => _context.Products.Count() == 0 ? 1 : _context.Products.Max(p => p.Id) + 1;
+        private int NextUniId => _context.Transactions.Count() == 0 ? 1 : _context.Transactions.Max(p => p.Id) + 1;
 
-        [HttpGet("GetProducts")]
-        public IActionResult GetStudents()
+        [HttpGet("GetTransactions")]
+        public IActionResult GetTransactions()
         {
-            var x = _context.Products.ToList();
-            var y = _context.Products;
+            var x = _context.Transactions.ToList();
+            var y = _context.Transactions;
 
             return Ok(x);
         }
@@ -35,31 +35,32 @@ namespace WebApplication4.Controllers
 
 
         [HttpGet("{Id}")]
-        public IActionResult GetProducts(int Id)
+        public IActionResult GetTransactions(int Id)
         {
-            var product = _context.Products.FirstOrDefault(x => x.Id == Id);
-            if (product == null)
+            var transactions = _context.Transactions.FirstOrDefault(x => x.Id == Id);
+            if (transactions == null)
                 return NotFound();
 
-            return Ok(product);
+            return Ok(transactions);
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(Models.Products productRequest)
+        public async Task<IActionResult> AddTransactions(Models.Transactions transactionsRequest)
         {
-            var product = new Models.Products()
+            var transactions = new Models.Transactions()
             {
                 //Id = Guid.NewGuid(),
                 Id = NextUniId,
-                ProductName = productRequest.ProductName,
-                
-                ProductCount = productRequest.ProductCount
+                IdStudent = transactionsRequest.IdStudent,
+                Sum = transactionsRequest.Sum,
+                TypeOfTransaction = transactionsRequest.TypeOfTransaction,
+                DateTransartion = transactionsRequest.DateTransartion
 
             };
-            await _context.Products.AddAsync(product);
+            await _context.Transactions.AllAsync(transactions);
             await _context.SaveChangesAsync();
-            return Ok(product);
+            return Ok(transactions);
         }
 
         [HttpDelete]
@@ -94,8 +95,5 @@ namespace WebApplication4.Controllers
             }
             return NotFound();
         }
-
-
-
     }
 }
