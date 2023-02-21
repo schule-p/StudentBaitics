@@ -65,35 +65,18 @@ namespace WebApplication4.Controllers
 
         [HttpDelete]
         [Route("{Id}")]
-        public async Task<IActionResult> DeleteProduct(int Id)
+        public async Task<IActionResult> DeleteTransactions(int Id)
         {
-            var product = await _context.Products.FindAsync(Id);
-            if (product != null)
+            var transactions = await _context.Transactions.FindAsync(Id);
+            if (transactions != null)
             {
-                _context.Remove(product);
+                _context.Remove(transactions);
                 await _context.SaveChangesAsync();
-                return Ok(product);
+                return Ok(transactions);
             }
             return NotFound();
         }
 
-        [HttpPut("{Id}")]
-        public async Task<IActionResult> UpdateProduct(int Id, Models.Products productsRequest)
-        {
-            var product = await _context.Products.FindAsync(Id);
-
-            if (product != null)
-            {
-
-                product.ProductName = productsRequest.ProductName;
-                
-                product.ProductCount = productsRequest.ProductCount;
-
-                await _context.SaveChangesAsync();
-
-                return Ok(product);
-            }
-            return NotFound();
-        }
+        
     }
 }

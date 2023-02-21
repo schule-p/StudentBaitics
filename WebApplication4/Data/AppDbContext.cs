@@ -30,6 +30,14 @@ namespace WebApplication4.Data
                 ProductCount = 19
             }
             );
+            builder.Entity<Transactions>().HasData(new Transactions
+            {
+                Id = 1,
+                IdStudent = 4,
+                Sum = 100,
+                TypeOfTransaction = false
+            }
+           );
 
         }
     }
