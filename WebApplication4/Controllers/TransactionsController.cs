@@ -5,6 +5,7 @@ using WebApplication4.Data;
 using System.Data.Entity;
 
 using System.Linq;
+using WebApplication4.Models;
 
 namespace WebApplication4.Controllers
 {
@@ -26,8 +27,14 @@ namespace WebApplication4.Controllers
         public IActionResult GetTransactions()
         {
             var x = _context.Transactions.ToList();
-            //var u = _context.Transactions.Where(p => p.Student == Id).FirstOrDefault();
-
+            var z = _context.Students.ToList();
+            //var u = _context.Transactions.ToList().Insert(p => p.Student == Id).FirstOrDefault();
+            var students = new List<Student>();
+            foreach (var student in x) {
+                //students.Add(x.Where(x => x.IdStudent == x.Student.Id));
+                var p = z.Where(x => x.Id == student.IdStudent).FirstOrDefault();
+                student.Student = p;
+            }
             return Ok(x);
         }
 

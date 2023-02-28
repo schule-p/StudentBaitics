@@ -11,8 +11,6 @@ namespace WebApplication4.Models
         [Key, Required]
         public int Id { get; set; }
 
-        
-
         [Display(Name = "Сумма транзакции")]
         public int Sum { get; set; }
 
