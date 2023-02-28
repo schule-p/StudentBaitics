@@ -12,8 +12,8 @@ using WebApplication4.Data;
 namespace WebApplication4.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230220210440_fird")]
-    partial class fird
+    [Migration("20230228083231_sec")]
+    partial class sec
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -99,15 +99,20 @@ namespace WebApplication4.Migrations
                     b.Property<int>("IdStudent")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("StudentId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("Sum")
                         .HasColumnType("integer");
 
-                    b.Property<bool?>("TypeOfTransaction")
+                    b.Property<bool>("TypeOfTransaction")
                         .HasColumnType("boolean");
 
                     b.HasKey("Id");
 
-                    b.ToTable("transartions");
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("transaсtions");
 
                     b.HasData(
                         new
@@ -118,6 +123,15 @@ namespace WebApplication4.Migrations
                             Sum = 100,
                             TypeOfTransaction = false
                         });
+                });
+
+            modelBuilder.Entity("WebApplication4.Models.Transactions", b =>
+                {
+                    b.HasOne("WebApplication4.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId");
+
+                    b.Navigation("Student");
                 });
 #pragma warning restore 612, 618
         }

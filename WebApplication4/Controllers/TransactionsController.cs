@@ -3,9 +3,8 @@ using NpgsqlTypes;
 using Microsoft.EntityFrameworkCore;
 using WebApplication4.Data;
 using System.Data.Entity;
-using System.Linq.Expressions;
 
-
+using System.Linq;
 
 namespace WebApplication4.Controllers
 {
@@ -27,7 +26,7 @@ namespace WebApplication4.Controllers
         public IActionResult GetTransactions()
         {
             var x = _context.Transactions.ToList();
-            var y = _context.Transactions;
+            //var u = _context.Transactions.Where(p => p.Student == Id).FirstOrDefault();
 
             return Ok(x);
         }
@@ -58,7 +57,7 @@ namespace WebApplication4.Controllers
                 DateTransartion = transactionsRequest.DateTransartion
 
             };
-            await _context.Transactions.AllAsync(transactions);
+            await _context.Transactions.AddAsync(transactions);
             await _context.SaveChangesAsync();
             return Ok(transactions);
         }

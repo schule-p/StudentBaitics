@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 using WebApplication4.Data;
 using Microsoft.AspNetCore.Mvc.Cors;
+using WebApplication4.Models;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +31,9 @@ builder.Services.AddSwaggerGen();
 //
 
 //
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

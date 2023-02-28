@@ -12,8 +12,8 @@ using WebApplication4.Data;
 namespace WebApplication4.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230209163341_secend")]
-    partial class secend
+    [Migration("20230228082220_som")]
+    partial class som
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace WebApplication4.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Price")
-                        .HasColumnType("integer");
-
                     b.Property<int>("ProductCount")
                         .HasColumnType("integer");
 
@@ -51,7 +48,6 @@ namespace WebApplication4.Migrations
                         new
                         {
                             Id = 1,
-                            Price = 1000,
                             ProductCount = 19,
                             ProductName = "Худи"
                         });
@@ -86,6 +82,41 @@ namespace WebApplication4.Migrations
                             LastDateUpdatePoints = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Points = 1000,
                             StudentName = "Виктор Корнеплод"
+                        });
+                });
+
+            modelBuilder.Entity("WebApplication4.Models.Transactions", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateTransartion")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("IdStudent")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Sum")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("TypeOfTransaction")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("transaсtions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateTransartion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IdStudent = 4,
+                            Sum = 100,
+                            TypeOfTransaction = false
                         });
                 });
 #pragma warning restore 612, 618

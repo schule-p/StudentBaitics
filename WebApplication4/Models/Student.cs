@@ -19,6 +19,8 @@ namespace WebApplication4.Models
         [Display(Name = "Последнее обновление")]
         public DateTime LastDateUpdatePoints { get; set; }
 
+
+        //public Transactions? Transactions { get; set; }
     }
 
 }
