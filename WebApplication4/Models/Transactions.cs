@@ -21,10 +21,14 @@ namespace WebApplication4.Models
         public DateTime DateTransartion { get; set; }
 
 
-        [Display(Name = "Id Студента")]
+        
         [ForeignKey("IdStudent")]
         public int IdStudent { get; set; }
         public Student? Student { get; set; }
 
+        
+        [ForeignKey("IdProducts")]
+        public int IdProducts { get; set; }
+        public Products? Product { get; set; }
     }
 }

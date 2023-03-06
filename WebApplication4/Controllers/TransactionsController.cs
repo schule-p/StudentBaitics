@@ -28,6 +28,7 @@ namespace WebApplication4.Controllers
         {
             var x = _context.Transactions.ToList();
             var z = _context.Students.ToList();
+            var y = _context.Products.ToList();
             //var u = _context.Transactions.ToList().Insert(p => p.Student == Id).FirstOrDefault();
             var students = new List<Student>();
             foreach (var student in x) {
@@ -35,6 +36,14 @@ namespace WebApplication4.Controllers
                 var p = z.Where(x => x.Id == student.IdStudent).FirstOrDefault();
                 student.Student = p;
             }
+            var products = new List<Products>();
+            foreach (var product in x)
+            {
+                //students.Add(x.Where(x => x.IdStudent == x.Student.Id));
+                var k = y.Where(x => x.Id == product.IdProducts).FirstOrDefault();
+                product.Product = k;
+            }
+
             return Ok(x);
         }
 
@@ -61,8 +70,8 @@ namespace WebApplication4.Controllers
                 IdStudent = transactionsRequest.IdStudent,
                 Sum = transactionsRequest.Sum,
                 TypeOfTransaction = transactionsRequest.TypeOfTransaction,
-                DateTransartion = transactionsRequest.DateTransartion
-
+                DateTransartion = transactionsRequest.DateTransartion,  
+                IdProducts = transactionsRequest.IdProducts,
             };
             await _context.Transactions.AddAsync(transactions);
             await _context.SaveChangesAsync();
