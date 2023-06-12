@@ -11,13 +11,26 @@ namespace WebApplication4.Models
 
         [Key, Required]
         public int Id { get; set; }
+
         [Required]
         [Display(Name = "Имя студента")]
-        public string StudentName { get; set; }
+        public string Name { get; set; }
+        
         [Display(Name = "Баллы")]
         public int Points { get; set; }
+
         [Display(Name = "Последнее обновление")]
         public DateTime LastDateUpdatePoints { get; set; }
+        
+
+        [ForeignKey("AcademicBuilding")]
+        public int IDAcademicBuilding { get; set; }
+        public AcademicBuilding? AcademicBuilding { get; set; }
+
+        [ForeignKey("Status")]
+        public int IDStatus { get; set; }
+        public Status? Status { get; set; }
+
 
     }
 

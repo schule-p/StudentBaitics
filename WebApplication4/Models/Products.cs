@@ -13,9 +13,12 @@ namespace WebApplication4.Models
         [Required]
         [Display(Name = "Название товара")]
         public string ProductName { get; set; }
+        [Display(Name = "Изображение")]
+        public string Img { get; set; }
+        [Display(Name = "Описание")]
+        public string Description { get; set; }
 
-        [Display(Name = "Количество")]
-        public int ProductCount { get; set; }
+        
 
     }
 }
